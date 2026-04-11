@@ -2,6 +2,7 @@
     p {text-align: center;}
     div {text-align: center;}
    .audio-container-center { display: flex;justify-content: center;}
+   .image-centered { display: flex;justify-content: center;}
 footer {
   text-align: center;
   left: 0;
