@@ -2,7 +2,7 @@
     p {text-align: center;}
     div {text-align: center;}
    .audio-container-center { display: flex;justify-content: center;}
-   .image-centered {position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);
+   .image-centered {position: absolute; top: 80%; left: 50%;}
 footer {
   text-align: center;
   left: 0;
