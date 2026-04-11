@@ -9,15 +9,13 @@ footer {
   bottom: 0;
   position: fixed;
 }
-body, html {
-  height: 100%;
-}
+body {
+  margin: 0;
+  height: 100vh;
 
-.bg {
   background-image: url("forestsite.jpg");
-  height: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 }
