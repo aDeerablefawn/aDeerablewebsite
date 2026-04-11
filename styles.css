@@ -9,3 +9,6 @@ footer {
   bottom: 0;
   position: fixed;
 }
+body {
+  background-image: url("https://raw.githubusercontent.com/aDeerablefawn/aDeerablewebsite/main/images/forestsite.jpg");
+}
