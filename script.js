@@ -1,44 +1,58 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const closeBtn = document.getElementById('closePopupBtn');
+
+document.addEventListener('DOMContentLoaded', function () {
     const popup = document.getElementById('contactPopup');
+    const closeBtn = document.getElementById('closePopupBtn');
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+
+    if (!popup) return;
+
+    // Popup openen
+    ['openPopupBtn', 'openPopupBtn2', 'openPopupBtnCta'].forEach(function (id) {
+        const button = document.getElementById(id);
+
+        if (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                popup.style.display = 'flex';
+            });
+        }
+    });
+
+    // Popup sluiten
+    function closePopup() {
+        popup.style.display = 'none';
+    }
 
     if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            popup.style.display = 'none';
+        closeBtn.addEventListener('click', closePopup);
+    }
+
+    // Sluiten bij klikken op de achtergrond
+    popup.addEventListener('click', function (event) {
+        if (event.target === popup) {
+            closePopup();
+        }
+    });
+
+    // Sluiten met Escape
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && popup.style.display === 'flex') {
+            closePopup();
+        }
+    });
+
+    // Formulierfeedback
+    if (contactForm && submitBtn && formStatus) {
+        contactForm.addEventListener('submit', function () {
+            // Dit gebeurt alleen als de browser het formulier geldig vindt.
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Bericht wordt verzonden...';
+
+            formStatus.hidden = false;
+            formStatus.textContent =
+                'Je bericht wordt verzonden. Een moment geduld.';
         });
     }
 });
-const openBtn = document.getElementById('openPopupBtn');
-const openBtn2 = document.getElementById('openPopupBtn2');
-const popup = document.getElementById('contactPopup');
-const closeBtn = document.getElementById('closePopupBtn');
-
-openBtn.onclick = function() {
-    popup.style.display = 'flex';
-}
-openBtn2.onclick = function() {
-    popup.style.display = 'flex';
-}
-
-closeBtn.onclick = function() {
-    popup.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if (event.target === popup) {
-        popup.style.display = 'none';
-    }
-}
-const ctaBtn = document.getElementById('openPopupBtnCta');
-if (ctaBtn) {
-    ctaBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('contactPopup').style.display = 'flex';
-    });
-}
-// --- Formulier verzenden (popup sluiten na versturen) ---
-document.getElementById('contactForm').onsubmit = function() {
-    setTimeout(function() {
-        popup.style.display = 'none';
-    }, 500);
-}
