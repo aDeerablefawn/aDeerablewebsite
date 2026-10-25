@@ -1106,37 +1106,22 @@ body.popup-open {
     cursor: wait;
 }
 
-/* ===== Hoe werkt het? centreren ===== */
-#werkwijze {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#werkwijze .container {
-    width: 100%;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Centreer de koppen van deze twee secties */
+#wat-doen-we .section-header,
 #werkwijze .section-header {
+    display: block;
     width: 100%;
-    text-align: center;
+    max-width: none;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
+#wat-doen-we .section-header h2,
+#wat-doen-we .section-header p,
 #werkwijze .section-header h2,
 #werkwijze .section-header p {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#werkwijze .process-text {
-    width: 100%;
-    max-width: 760px;
-    box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
 }
